@@ -1,0 +1,33 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.aps
+
+# Build output
+Debug/
+Release/
+x64/
+Win32/
+foo_dsp_cassette/
+
+# Intermediate files
+*.obj
+*.pch
+*.ipdb
+*.iobj
+*.ilk
+
+# Compiled output
+*.dll
+*.exp
+*.lib
+*.pdb
+*.fb2k-component
+
+# NuGet packages (restored automatically on build)
+packages/
+
+# foobar2000 SDK and third-party libraries
+# Place the SDK under lib/ manually; see README for details
+lib/

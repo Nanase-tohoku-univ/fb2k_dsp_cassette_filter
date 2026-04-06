@@ -1,0 +1,80 @@
+#include "resource.h"
+#include <windows.h>
+#include <commctrl.h>
+
+#ifndef IDC_STATIC
+#define IDC_STATIC -1
+#endif
+
+IDD_CASSETTE_CONFIG DIALOGEX 0, 0, 320, 310
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Cassette Tape Emulator"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    // ── Low Pass Filter ──────────────────────────────
+    GROUPBOX        "Low Pass Filter",      IDC_STATIC,     7,   7,  306,  34
+    LTEXT           "Cutoff:",              IDC_STATIC,    14,  20,   36,   9
+    CONTROL         "",  IDC_SLIDER_LPF_CUTOFF, "msctls_trackbar32",
+                    TBS_HORZ | TBS_NOTICKS | WS_CHILD | WS_VISIBLE,
+                    55,  18,  200,  14
+    LTEXT           "12000 Hz",             IDC_STATIC_LPF_CUTOFF,
+                    260,  20,   50,   9
+
+    // ── Tape Hiss ────────────────────────────────────
+    GROUPBOX        "Tape Hiss",            IDC_STATIC,     7,  47,  306,  50
+    AUTOCHECKBOX    "Enable",               IDC_CHECK_HISS_ENABLED,
+                    14,  60,   50,  10
+    LTEXT           "Level:",               IDC_STATIC,    14,  76,   36,   9
+    CONTROL         "",  IDC_SLIDER_HISS_LEVEL, "msctls_trackbar32",
+                    TBS_HORZ | TBS_NOTICKS | WS_CHILD | WS_VISIBLE,
+                    55,  74,  200,  14
+    LTEXT           "-40 dB",               IDC_STATIC_HISS_LEVEL,
+                    260,  76,   50,   9
+
+    // ── Wow & Flutter ────────────────────────────────
+    GROUPBOX        "Wow && Flutter",       IDC_STATIC,     7, 103,  306,  80
+    LTEXT           "Rate:",                IDC_STATIC,    14, 116,   36,   9
+    CONTROL         "",  IDC_SLIDER_WF_RATE, "msctls_trackbar32",
+                    TBS_HORZ | TBS_NOTICKS | WS_CHILD | WS_VISIBLE,
+                    55, 114,  200,  14
+    LTEXT           "3.0 Hz",               IDC_STATIC_WF_RATE,
+                    260, 116,   50,   9
+
+    LTEXT           "Depth:",               IDC_STATIC,    14, 136,   36,   9
+    CONTROL         "",  IDC_SLIDER_WF_DEPTH, "msctls_trackbar32",
+                    TBS_HORZ | TBS_NOTICKS | WS_CHILD | WS_VISIBLE,
+                    55, 134,  200,  14
+    LTEXT           "0.30",                 IDC_STATIC_WF_DEPTH,
+                    260, 136,   50,   9
+
+    LTEXT           "Random:",              IDC_STATIC,    14, 156,   36,   9
+    CONTROL         "",  IDC_SLIDER_WF_RANDOM, "msctls_trackbar32",
+                    TBS_HORZ | TBS_NOTICKS | WS_CHILD | WS_VISIBLE,
+                    55, 154,  200,  14
+    LTEXT           "0.50",                 IDC_STATIC_WF_RANDOM,
+                    260, 156,   50,   9
+
+    // ── Saturation ───────────────────────────────────
+    GROUPBOX        "Saturation",           IDC_STATIC,     7, 189,  306,  50
+    LTEXT           "Drive:",               IDC_STATIC,    14, 202,   36,   9
+    CONTROL         "",  IDC_SLIDER_SAT_DRIVE, "msctls_trackbar32",
+                    TBS_HORZ | TBS_NOTICKS | WS_CHILD | WS_VISIBLE,
+                    55, 200,  200,  14
+    LTEXT           "2.0x",                 IDC_STATIC_SAT_DRIVE,
+                    260, 202,   50,   9
+
+    LTEXT           "Mix:",                 IDC_STATIC,    14, 222,   36,   9
+    CONTROL         "",  IDC_SLIDER_SAT_MIX, "msctls_trackbar32",
+                    TBS_HORZ | TBS_NOTICKS | WS_CHILD | WS_VISIBLE,
+                    55, 220,  200,  14
+    LTEXT           "50%",                  IDC_STATIC_SAT_MIX,
+                    260, 222,   50,   9
+
+    // ── Buttons ──────────────────────────────────────
+    PUSHBUTTON      "Reset Defaults",       IDC_BTN_RESET,
+                     90, 248,  80,  14
+    DEFPUSHBUTTON   "OK",                   IDOK,
+                    200, 248,  50,  14
+    PUSHBUTTON      "Cancel",               IDCANCEL,
+                    255, 248,  50,  14
+END

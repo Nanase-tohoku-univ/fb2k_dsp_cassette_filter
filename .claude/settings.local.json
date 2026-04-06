@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:wiki.hydrogenaud.io)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:wiki.hydrogenaudio.org)"
+    ]
+  }
+}
