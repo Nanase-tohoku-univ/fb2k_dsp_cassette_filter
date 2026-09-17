@@ -28,8 +28,15 @@ Output PCM
 
 ## Installation
 
-1. Download the latest `foo_dsp_cassette.fb2k-component` from the [Releases](../../releases) page.
-2. Drag and drop the file onto the foobar2000 window, or copy it to your foobar2000 `components` folder.
+1. Download the component that matches your foobar2000 build from the [Releases](../../releases) page:
+
+   | foobar2000 | File |
+   |------------|------|
+   | 64-bit (x64) | `foo_dsp_cassette-x64.fb2k-component` |
+   | 32-bit (x86) | `foo_dsp_cassette-x86.fb2k-component` |
+
+   You can check your build in **Help → About** (64-bit builds show `[x64]`). Installing the wrong one fails with "built for a different processor architecture".
+2. Drag and drop the file onto the foobar2000 window, or double-click it.
 3. Restart foobar2000.
 4. Open **File → Preferences → Playback → DSP Manager**.
 5. Add **Cassette Tape Emulator** to the active DSP chain.
@@ -97,8 +104,8 @@ Output PCM
    ```
 3. Open `foo_dsp_cassette.sln` in Visual Studio 2022.
 4. NuGet will restore WTL automatically on first build.
-5. Build the **Release x64** configuration.
-6. Rename the output `foo_dsp_cassette.dll` to `foo_dsp_cassette.fb2k-component` and install it.
+5. Build the **Release | x64** configuration for 64-bit foobar2000, or **Release | Win32** for 32-bit foobar2000.
+6. A post-build step packages the DLL into `foo_dsp_cassette.fb2k-component` (a ZIP archive) next to it — `x64\Release\` for x64, `Release\` for Win32. Install that file. Renaming the DLL alone does not work.
 
 ## Known Limitations
 
@@ -129,8 +136,15 @@ See [LICENSE](LICENSE) for details.
 
 ### インストール
 
-1. [Releases](../../releases) ページから最新の `foo_dsp_cassette.fb2k-component` をダウンロードします。
-2. ファイルを foobar2000 のウィンドウにドラッグ＆ドロップするか、`components` フォルダーにコピーします。
+1. [Releases](../../releases) ページから、使っている foobar2000 に合ったファイルをダウンロードします。
+
+   | foobar2000 | ファイル |
+   |------------|----------|
+   | 64bit 版 (x64) | `foo_dsp_cassette-x64.fb2k-component` |
+   | 32bit 版 (x86) | `foo_dsp_cassette-x86.fb2k-component` |
+
+   どちらの版かは **ヘルプ → バージョン情報** で確認できます（64bit 版は `[x64]` と表示されます）。違う方を入れると "built for a different processor architecture" というエラーになります。
+2. ファイルを foobar2000 のウィンドウにドラッグ＆ドロップするか、ダブルクリックします。
 3. foobar2000 を再起動します。
 4. **ファイル → 環境設定 → 再生 → DSP Manager** を開きます。
 5. **Cassette Tape Emulator** をアクティブな DSP チェーンに追加します。
@@ -171,7 +185,8 @@ See [LICENSE](LICENSE) for details.
 詳細な設計仕様は [`foo_dsp_cassette_design.md`](foo_dsp_cassette_design.md) を参照してください。
 
 ビルドには Visual Studio 2022、foobar2000 SDK（最新版）、WTL 10.x が必要です。
-SDK ファイルを `lib/` 以下に配置し、`foo_dsp_cassette.sln` を開いて Release x64 でビルドしてください。
+SDK ファイルを `lib/` 以下に配置し、`foo_dsp_cassette.sln` を開いて、64bit 版向けは Release | x64、32bit 版向けは Release | Win32 でビルドしてください。
+ビルド後、DLL と同じフォルダー（x64 は `x64\Release\`、Win32 は `Release\`）に `foo_dsp_cassette.fb2k-component` が生成されます。DLL をリネームするだけでは読み込めません。
 
 ### ライセンス
 
